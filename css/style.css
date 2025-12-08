@@ -143,15 +143,12 @@ a {
     }
 }
 
-/* -----------------------------------
-   MAIN CONTENT
------------------------------------ */
 .main-content {
     margin-left: 250px;
     padding: 20px;
     width: 100%;
 
-    /* 🌿 Soft Medical Pattern Background */
+
     background:
         radial-gradient(circle at 20% 20%, rgba(0,191,166,0.08), transparent 60%),
         radial-gradient(circle at 80% 30%, rgba(0,130,120,0.08), transparent 55%),
@@ -160,9 +157,6 @@ a {
 }
 
 
-/* -----------------------------------
-   TOP BAR
------------------------------------ */
 .topbar {
     background: white;
     padding: 18px 20px;
@@ -192,9 +186,7 @@ a {
     border-radius: 50%;
 }
 
-/* -----------------------------------
-   CARDS
------------------------------------ */
+
 .card {
     background: white;
     padding: 22px;
@@ -223,9 +215,7 @@ a {
     color: #00BFA6;
 }
 
-/* -----------------------------------
-   BUTTONS
------------------------------------ */
+
 .btn {
     padding: 10px 20px;
     background: #00BFA6;
@@ -250,9 +240,7 @@ a {
     color: white;
 }
 
-/* -----------------------------------
-   GRID LAYOUTS
------------------------------------ */
+
 
 /* Dashboard Stat Grid */
 .stats-grid {
@@ -302,9 +290,7 @@ a {
     margin-bottom: 10px;
 }
 
-/* -----------------------------------
-   BAR CHART (Dashboard)
------------------------------------ */
+
 .bar-chart {
     display: flex;
     gap: 15px;
@@ -329,9 +315,7 @@ a {
     color: #475569;
 }
 
-/* -----------------------------------
-   FORMS
------------------------------------ */
+
 .form-area {
     display: flex;
     flex-direction: column;
@@ -362,9 +346,7 @@ input:focus, select:focus, textarea:focus {
     }
 }
 
-/* -----------------------------------
-   PRESCRIPTION PAGE
------------------------------------ */
+
 .prescription-upload-box {
     margin-top: 20px;
 }
@@ -376,9 +358,7 @@ input:focus, select:focus, textarea:focus {
     margin-top: 10px;
 }
 
-/* -----------------------------------
-   CONTACT PAGE
------------------------------------ */
+
 .emergency {
     background: #FFF5F5;
     border-left: 6px solid #ef4444;
@@ -447,3 +427,112 @@ input:focus, select:focus, textarea:focus {
 }
 
 
+
+/* --- Interactive Elements (Crazy Mode) --- */
+
+/* Toast Notifications */
+.toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.toast {
+    background: white;
+    padding: 16px 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-left: 5px solid #00BFA6;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    animation: slideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    transform: translateX(100%);
+    opacity: 0;
+    min-width: 300px;
+}
+
+.toast.error {
+    border-left-color: #ef4444;
+}
+
+.toast h4 {
+    margin: 0;
+    font-size: 16px;
+    color: #334155;
+}
+
+.toast p {
+    margin: 0;
+    font-size: 14px;
+    color: #64748b;
+}
+
+@keyframes slideIn {
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    to {
+        transform: translateX(120%);
+        opacity: 0;
+    }
+}
+
+/* Drag & Drop Zone Active State */
+.prescription-upload-box.drag-active {
+    border: 3px dashed #00BFA6;
+    background: rgba(0, 191, 166, 0.05);
+    transform: scale(1.02);
+}
+
+/* Progress Bar */
+.progress-container {
+    width: 100%;
+    height: 6px;
+    background: #e2e8f0;
+    border-radius: 10px;
+    margin-top: 15px;
+    overflow: hidden;
+    display: none; /* Hidden by default */
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #00BFA6;
+    border-radius: 10px;
+    transition: width 0.1s linear;
+}
+
+.check-animation {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: #00BFA6;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 24px;
+    font-weight: bold;
+    animation: popIn 0.3s ease;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0); }
+    80% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Confetti-like nice animation for success */
+@keyframes celebrate {
+    0% { transform: translateY(0) rotate(0); opacity: 1; }
+    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+}
