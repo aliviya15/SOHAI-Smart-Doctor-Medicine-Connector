@@ -11,19 +11,18 @@ function setActiveSidebarLink() {
   const menuLinks = document.querySelectorAll('.menu a');
   if (!menuLinks.length) return;
 
-  // Get current file name (e.g. "index.html", "doctors.html")
   let path = window.location.pathname.split('/').pop();
 
-  // If path is empty (served as "/"), treat as index.html
+ 
   if (!path) path = 'index.html';
 
   menuLinks.forEach(link => {
     const href = link.getAttribute('href');
 
-    // Remove existing active class
+   
     link.classList.remove('active');
 
-    // If href matches current path, mark this one active
+   
     if (href === path) {
       link.classList.add('active');
     }
